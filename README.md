@@ -1,4 +1,4 @@
-# Loan-Approval-System
+# Loan-Approval-Prediction-System
 ## Project Overview
 The Loan Approval Prediction System is a web-based application designed to predict the likelihood of loan approval based on user-provided data. The system uses machine learning models to generate predictions and offers functionalities for both users and banking officials, including application submission, status tracking, and reporting.
 
