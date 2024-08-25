@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Application Status{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>Application Status</h1>
+        <p><strong>Application ID:</strong> {{ application.application_id }}</p>
+        <p><strong>Loan Amount:</strong> {{ application.loan_amount }}</p>
+        <p><strong>Loan Term:</strong> {{ application.loan_term }} months</p>
+        <p><strong>Status:</strong> {{ application.application_status }}</p>
+        <p><strong>Prediction Result:</strong> {{ 'Approved' if application.prediction_result else 'Not Approved' }}</p>
+        <p><strong>Submission Date:</strong> {{ application.submission_date.strftime('%Y-%m-%d %H:%M:%S') }}</p>
+        
+        <a href="{{ url_for('dashboard') }}" class="btn btn-primary">Back to Dashboard</a>
+    </div>
+{% endblock %}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Application | Loan Approval System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="nav-list">
+                <li><a href="{{ url_for('home') }}" class="nav-link">Home</a></li>
+                <li><a href="{{ url_for('officer_dashboard') }}" class="nav-link">Dashboard</a></li>
+                <li><a href="{{ url_for('logout') }}" class="nav-link">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Review Application</h1>
+        <form method="POST">
+            <p><strong>Application ID:</strong> {{ application.application_id }}</p>
+            <p><strong>User ID:</strong> {{ application.user_id }}</p>
+            <p><strong>Loan Amount:</strong> {{ application.loan_amount }}</p>
+            <p><strong>Loan Term:</strong> {{ application.loan_term }}</p>
+            <p><strong>Status:</strong> {{ application.application_status }}</p>
+
+            <label for="status">Update Status:</label>
+            <select id="status" name="status">
+                <option value="Under Review" {% if application.application_status == 'Under Review' %}selected{% endif %}>Under Review</option>
+                <option value="Approved" {% if application.application_status == 'Approved' %}selected{% endif %}>Approved</option>
+                <option value="Rejected" {% if application.application_status == 'Rejected' %}selected{% endif %}>Rejected</option>
+            </select>
+
+            <button type="submit">Update Status</button>
+        </form>
+        <a href="{{ url_for('officer_dashboard') }}">Back to Dashboard</a>
+    </main>
+</body>
+</html>

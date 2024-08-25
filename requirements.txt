@@ -1,0 +1,14 @@
+Flask
+Flask-SQLAlchemy
+Flask-WTF
+Flask-Login
+Flask-Mail
+Flask-Migrate
+scikit-learn
+pandas
+numpy
+dash
+plotly
+requests
+pymysql
+cryptography

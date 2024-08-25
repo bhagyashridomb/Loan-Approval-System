@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="container">
+
+    <h1>Dashboard</h1>
+    <h2>Your Applications:</h2>
+
+    {% if applications %}
+        <ul class="applications-list">
+            {% for app in applications %}
+                <li>
+                    <strong>Application ID:</strong> {{ app.application_id }}<br>
+                    <strong>Status:</strong> {{ app.application_status }}<br>
+                    <strong>Loan Amount:</strong> {{ app.loan_amount }}<br>
+                    <strong>Loan Term:</strong> {{ app.loan_term }} months<br>
+                    <strong>Prediction Result:</strong> 
+                    {% if app.prediction_result %}
+                        <span class="text-success">Approved</span>
+                    {% else %}
+                        <span class="text-danger">Rejected</span>
+                    {% endif %}<br>
+                    <a href="{{ url_for('application_status', application_id=app.application_id) }}">View Details</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>You have no applications at this time.</p>
+    {% endif %}
+
+    <a href="{{ url_for('logout') }}" class="btn btn-primary">Logout</a>
+    <a href="{{ url_for('index') }}" class="btn btn-primary">Check Your Loan Approval</a>
+
+</div>
+{% endblock %}

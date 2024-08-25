@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Result{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>Loan Approval Prediction</h1>
+        {% if prediction_result %}
+            <p>Congratulations! You have a high chance of loan approval.</p>
+            {% if current_user.is_authenticated %}
+                <form action="{{ url_for('submit_application') }}" method="POST">
+                    <input type="hidden" name="prediction_result" value="true">
+                    <button type="submit" class="btn btn-primary">Proceed to Apply</button>
+                </form>
+                <a href="{{ url_for('dashboard') }}" class="btn btn-secondary">Back to Dashboard</a>
+            {% else %}
+                <form action="{{ url_for('login') }}" method="GET">
+                    <button type="submit" class="btn btn-primary">Login to Apply</button>
+                </form>
+            {% endif %}
+        {% else %}
+            <p>Unfortunately, your loan application might not be approved.</p>
+            <a href="{{ url_for('index') }}" class="btn btn-secondary">Try Again</a>
+        {% endif %}
+    </div>
+{% endblock %}

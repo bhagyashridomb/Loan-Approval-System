@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Loan Approval System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="nav-list">
+                <li><a href="{{ url_for('home') }}" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="{{ url_for('index') }}" class="nav-link"><i class="fas fa-check-circle"></i> Check Your Loan Approval</a></li>
+                <li><a href="{{ url_for('login') }}" class="nav-link"><i class="fas fa-sign-in-alt"></i> User Login</a></li>
+                <li><a href="{{ url_for('officer_login') }}" class="nav-link"><i class="fas fa-user-shield"></i> Officer Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Welcome to the Loan Approval System</h1>
+                <p>Your gateway to a simplified loan application process. Find out if you qualify for a loan with just a few clicks.</p>
+                <div class="hero-buttons">
+                    <a href="{{ url_for('index') }}" class="btn btn-primary">Check Your Loan Approval</a>
+                    <a href="{{ url_for('login') }}" class="btn btn-secondary">User Login</a>
+                    <a href="{{ url_for('officer_login') }}" class="btn btn-tertiary">Officer Login</a>
+                </div>
+                <img src="{{ url_for('static', filename='loan2.jpg') }}" alt="Loan Approval" class="hero-image">
+            </div>
+        </section>
+
+        <section class="rules">
+            <h2>Rules and Regulations</h2>
+            <ul>
+                <li>Ensure all personal and financial information provided is accurate and up-to-date.</li>
+                <li>All applications are subject to a credit check and approval process.</li>
+                <li>Additional documentation may be required based on the type and amount of the loan.</li>
+                <li>Approval of your loan application is at the discretion of the lending institution.</li>
+                <li>For any queries or further assistance, please contact our support team.</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Loan Approval System</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Officer Dashboard | Loan Approval System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="nav-list">
+                <li><a href="{{ url_for('home') }}" class="nav-link">Home</a></li>
+                <li><a href="{{ url_for('logout') }}" class="nav-link">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Officer Dashboard</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Application ID</th>
+                    <th>User ID</th>
+                    <th>Loan Amount</th>
+                    <th>Loan Term</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for application in applications %}
+                <tr>
+                    <td>{{ application.application_id }}</td>
+                    <td>{{ application.user_id }}</td>
+                    <td>{{ application.loan_amount }}</td>
+                    <td>{{ application.loan_term }}</td>
+                    <td>{{ application.application_status }}</td>
+                    <td>
+                        <a href="{{ url_for('review_application', application_id=application.application_id) }}">Review</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>
